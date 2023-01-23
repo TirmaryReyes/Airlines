@@ -1,0 +1,97 @@
+const flights = [
+  { id: 00, to: 'New York', from: 'Barcelona', cost: 700, layover: false },
+  { id: 01, to: 'Los Angeles', from: 'Madrid', cost: 1100, layover: true },
+  { id: 02, to: 'Paris', from: 'Barcelona', cost: 210, layover: false },
+  { id: 03, to: 'Roma', from: 'Barcelona', cost: 150, layover: false },
+  { id: 04, to: 'London', from: 'Madrid', cost: 200, layover: false },
+  { id: 05, to: 'Madrid', from: 'Barcelona', cost: 90, layover: false },
+  { id: 06, to: 'Tokyo', from: 'Madrid', cost: 1500, layover: true },
+  { id: 07, to: 'Shangai', from: 'Barcelona', cost: 800, layover: true },
+  { id: 08, to: 'Sydney', from: 'Barcelona', cost: 150, layover: true },
+  { id: 09, to: 'Tel-Aviv', from: 'Madrid', cost: 150, layover: false },
+];
+
+let name;
+const inputData = () => {
+  name = prompt(`Welcome indicate your name please.`);
+  if (name === null) {
+    return;
+  }
+
+  const welcomeMessage =
+    name === ' '
+      ? console.log(`Welcome to TirmAirlines!`)
+      : console.log(`Welcome to TirmAirlines ${name}.`);
+  return name;
+};
+inputData();
+
+const airlines = () => {
+  const flightSchedule = flights => {
+    const nonStopFlights = flights
+      .filter(flight => flight.from === 'Barcelona' && flight.layover === false)
+      .sort((a, b) => a.cost - b.cost)
+      .map(
+        flight =>
+          `The flight ${flight.id} with origin ${flight.from} and destiny ${flight.to} has a cost of ${flight.cost}€ and does'nt make any stopovers.`
+      )
+      .join('\n');
+
+    console.log(`${nonStopFlights}`);
+    return;
+  };
+  flightSchedule(flights);
+
+  const averageCost = flights => {
+    let totalCost = flights.reduce(
+      (accumulator, flight) => accumulator + flight.cost,
+      0
+    );
+    let averageCost = totalCost / flights.length;
+
+    console.log(`The average cost of flights is: ${averageCost}€`);
+    return;
+  };
+  averageCost(flights);
+
+  console.log(`These are the flights with stopovers:\n`);
+  const flightsWithStopovers = flights => {
+    const groupeFlight = flights
+      .filter(flight => flight.layover === true)
+      .sort((a, b) => a.cost - b.cost)
+      .map(
+        flight =>
+          `The flight ${flight.id} with origin ${flight.from} and destiny ${flight.to} has a cost of ${flight.cost}€ with scale.`
+      )
+      .join('\n');
+    console.log(`${groupeFlight}`);
+    return;
+  };
+  flightsWithStopovers(flights);
+
+  const lastFlights = flights => {
+    const last5Destinations = flights
+      .slice(-5)
+      .map(flight => flight.to)
+      .join('\n');
+
+    console.log(
+      `These are the last 5 flights today, bound for:\n${last5Destinations}.`
+    );
+    return;
+    console.log('Thank you for choosing TirmAirlines');
+  };
+
+  lastFlights(flights);
+  const finalMessage = () => {
+    const message = `Thank you for choosing TirmAirlines ${name}`;
+    console.log(message);
+  };
+  finalMessage();
+};
+
+if (name === null) {
+  console.log('Thank you for visiting TirmAirlines, see you later!');
+} else {
+    airlines();
+}
