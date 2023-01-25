@@ -21,7 +21,7 @@ const inputData = () => {
   const welcomeMessage =
     name === ' '
       ? console.log(`Welcome to ISDI Coders Airlines!`)
-      : console.log(`Welcome to ISDI Coders Airlines! ${name}.`);
+      : console.log(`Welcome to ISDI Coders Airlines ${name}!`);
   return name;
 };
 inputData();
@@ -79,12 +79,12 @@ const airlines = () => {
       `These are the last 5 flights today, bound for:\n${last5Destinations}.`
     );
     return;
-    console.log('Thank you for choosing TirmAirlines');
+    console.log('Thank you for choosing ISDI Coders Airlines!');
   };
 
   lastFlights(flights);
   const finalMessage = () => {
-    const message = `Thank you for choosing ISDI Coders Airlines! ${name}`;
+    const message = `Thank you for choosing ISDI Coders Airlines ${name}!`;
     console.log(message);
   };
   finalMessage();
