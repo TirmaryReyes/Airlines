@@ -28,16 +28,20 @@ inputData();
 
 const airlines = () => {
   const flightSchedule = flights => {
-    const nonStopFlights = flights
-      .filter(flight => flight.from === 'Barcelona' && flight.layover === false)
-      .sort((a, b) => a.cost - b.cost)
+    const flightsDescription = flights
       .map(
         flight =>
-          `The flight ${flight.id} with origin ${flight.from} and destiny ${flight.to} has a cost of ${flight.cost}€ and does'nt make any stopovers.`
+          `The flight ${flight.id} with origin ${flight.from} and destiny ${
+            flight.to
+          } has a cost of ${flight.cost}€ and ${
+            flight.layover
+              ? 'makes a stopover.'
+              : 'does not make any stopovers.'
+          }`
       )
       .join('\n');
 
-    console.log(`${nonStopFlights}`);
+    console.log(`${flightsDescription}`);
     return;
   };
   flightSchedule(flights);
@@ -93,5 +97,6 @@ const airlines = () => {
 if (name === null) {
   console.log('Thank you for visiting ISDI Coders Airlines!, see you later!');
 } else {
-    airlines();
+  airlines();
 }
+
