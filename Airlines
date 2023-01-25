@@ -20,8 +20,8 @@ const inputData = () => {
 
   const welcomeMessage =
     name === ' '
-      ? console.log(`Welcome to TirmAirlines!`)
-      : console.log(`Welcome to TirmAirlines ${name}.`);
+      ? console.log(`Welcome to ISDI Coders Airlines!`)
+      : console.log(`Welcome to ISDI Coders Airlines! ${name}.`);
   return name;
 };
 inputData();
@@ -84,14 +84,14 @@ const airlines = () => {
 
   lastFlights(flights);
   const finalMessage = () => {
-    const message = `Thank you for choosing TirmAirlines ${name}`;
+    const message = `Thank you for choosing ISDI Coders Airlines! ${name}`;
     console.log(message);
   };
   finalMessage();
 };
 
 if (name === null) {
-  console.log('Thank you for visiting TirmAirlines, see you later!');
+  console.log('Thank you for visiting ISDI Coders Airlines!, see you later!');
 } else {
     airlines();
 }
