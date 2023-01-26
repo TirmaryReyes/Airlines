@@ -27,6 +27,7 @@ const inputData = () => {
 inputData();
 
 const airlines = () => {
+  console.log(`This is the information of all the flights:\n`);
   const flightSchedule = flights => {
     const flightsDescription = flights
       .map(
@@ -65,7 +66,7 @@ const airlines = () => {
       .sort((a, b) => a.cost - b.cost)
       .map(
         flight =>
-          `The flight ${flight.id} with origin ${flight.from} and destiny ${flight.to} has a cost of ${flight.cost}€ with scale.`
+          `The flight ${flight.id} with origin ${flight.from} and destiny ${flight.to} has a cost of ${flight.cost}€.`
       )
       .join('\n');
     console.log(`${groupeFlight}`);
@@ -95,8 +96,7 @@ const airlines = () => {
 };
 
 if (name === null) {
-  console.log('Thank you for visiting ISDI Coders Airlines!, see you later!');
+  console.log('Thank you for visiting ISDI Coders Airlines! See you later!');
 } else {
   airlines();
 }
-
